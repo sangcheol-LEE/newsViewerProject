@@ -71,7 +71,7 @@ const Category = styled.div`
   }
 `;
 
-const Caregories = ({ category, onSelect }) => {
+const Categories = ({ category, onSelect }) => {
   return (
     <CategoriesBlock>
       {categories.map(c => (
@@ -85,4 +85,4 @@ const Caregories = ({ category, onSelect }) => {
   );
 };
 
-export default Caregories;
+export default Categories;

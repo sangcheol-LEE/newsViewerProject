@@ -1,55 +1,56 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const NewsItemBlock = styled.div`
-  display: flex;
-  .thumnail {
-    margin-right: 1rem;
-    img {
-      display:block;
-      width:160px;
-      height:100px;
-      object-fit: cover;
+const NewsItemBox = styled.div`
+  display:flex;
+
+    .thumnail {
+      margin-right: 1rem;
+
+      img {
+        display:block;
+        width: 160px;
+        height: 100px;
+        object-fit: cover;
+      }
     }
-  }
+
   .contents {
     h2 {
       margin: 0;
       a {
-        color: black;
+        color : black;
+        }
+      }
+    p {
+      margin : 0;
+      line-height: 1.5;
+      margin-top : 0.5rem;
+      white-space: normal;
       }
     }
-    p {
-      margin: 0;
-      line-height: 1.5;
-      margin-top: 0.5rem;
-      white-space: normal;
+    & + & {
+        margin-top: 3rem;
     }
-  }
-  & + & {
-    margin-top: 3rem
-  }
 `;
 
-const NewsItem = ({article}) => {
-  const {title, description, url, urlToImage} = article;
+const NewsItem = ({news}) => {
+  const {title,description,url,urlToImage } = news
   return (
-    <NewsItemBlock>
-      {urlToImage && (
+    <NewsItemBox>
+      { urlToImage && ( 
         <div className="thumnail">
           <a href={url} target="_blank" rel="noopener noreferrer">
-            <img src={urlToImage} alt="thumnail"/>
+            <img src={urlToImage} alt="url"/>
           </a>
         </div>
       )}
-      <div   className="contents">
-        <h2>
-          <a
-            href={url} target="_blank" rel="noopener noreferrer">{title}</a>
-        </h2>
+
+      <div className="contents">
+        <h2>{title}</h2>
         <p>{description}</p>
       </div>
-    </NewsItemBlock>
+    </NewsItemBox>
   );
 };
 
